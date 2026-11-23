@@ -1,294 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101827">
-  <title>Mon Coach — Plan sportif</title>
-  <style>
-    :root{--bg:#0b1220;--panel:#121d2e;--panel2:#172438;--text:#edf3fb;--muted:#a7b5c8;--line:#29384d;--blue:#68a8ff;--green:#7dd9ad;--amber:#ffd17a;--red:#ff9292}
-    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0%,#1a3150 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-    .wrap{max-width:1050px;margin:auto;padding:28px 18px 60px}.hero{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#182b43,#111b2b);box-shadow:0 18px 50px #0004}
-    .eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:10px 0}.hero p{color:var(--muted);max-width:720px;margin-bottom:0}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.stat{background:#0d1726aa;border:1px solid var(--line);padding:13px;border-radius:14px}.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted)}
-    h2{font-size:22px;margin:30px 0 12px}.notice{border:1px solid #755b2b;background:#392d19;color:#ffe3ad;padding:16px;border-radius:15px}.notice strong{display:block;margin-bottom:5px}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px}.card h3{margin:0 0 8px;font-size:18px}.tag{display:inline-block;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:800;background:#203b5e;color:#b8d7ff;margin-bottom:9px}.tag.rest{background:#203b35;color:#a8f0cd}.tag.care{background:#49371e;color:#ffdda0}
-    ul{padding-left:20px;margin:9px 0;color:#d9e3f0}li{margin:6px 0}.muted{color:var(--muted)}.day{display:flex;align-items:center;justify-content:space-between;gap:12px}.day small{color:var(--muted)}
-    .checklist{display:grid;gap:9px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#0d1726}.check input{width:18px;height:18px;accent-color:var(--green);margin-top:2px}.check.done span{text-decoration:line-through;color:#8392a6}
-    .progress{height:9px;background:#25344a;border-radius:20px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#5f9fff,#7dd9ad);transition:width .2s}.progressrow{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-    .food{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.meal{background:var(--panel2);border-radius:13px;padding:13px}.meal b{display:block;margin-bottom:4px}.meal p{margin:0;color:var(--muted);font-size:14px}
-    .footer{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;color:var(--muted);font-size:13px}.btn{border:1px solid var(--line);background:#1a2a40;color:var(--text);padding:9px 13px;border-radius:10px;font-weight:700;cursor:pointer}.btn:hover{border-color:var(--blue)}
-    @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.food{grid-template-columns:1fr}.wrap{padding:16px 12px 40px}.hero{padding:20px}}
-  </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b14">
+<title>MUSCU — Elite Training System</title>
+<style>
+:root{--bg:#080b14;--panel:#111827;--panel2:#172236;--line:#29364d;--txt:#f3f6ff;--muted:#9ba9bf;--blue:#63b3ff;--violet:#a88aff;--gold:#ffbd69;--green:#76dfb2;--red:#ff9292}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 78% 0%,#172e53 0,transparent 35%),var(--bg);color:var(--txt);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{min-height:100vh;padding-bottom:35px}.layout{max-width:1480px;margin:auto;display:grid;grid-template-columns:245px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:26px 17px;background:#090e19e8;border-right:1px solid #ffffff12;backdrop-filter:blur(18px);display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:11px;margin:3px 8px 36px;font-weight:950;letter-spacing:.14em}.mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#07101d;font-size:21px;background:linear-gradient(135deg,var(--blue),var(--violet) 58%,var(--gold));box-shadow:0 0 28px #6baaff65}.navlabel{font-size:10px;color:#65738b;letter-spacing:.2em;font-weight:900;margin:0 10px 10px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;text-align:left;color:#aab6ca;padding:11px 12px;border-radius:11px;display:flex;gap:12px;align-items:center;transition:.2s}.nav button:hover,.nav button.active{background:#1b2940;color:white}.nav button.active{box-shadow:inset 3px 0 var(--blue)}.nav i{font-style:normal;width:20px;text-align:center;font-size:17px}.sidefoot{margin-top:auto;color:#718098;font-size:11px;padding:12px 9px}.main{min-width:0;padding:25px 34px 50px}.topbar{display:flex;align-items:center;gap:14px;margin-bottom:25px}.mobilebrand{display:none;font-weight:950;letter-spacing:.14em;align-items:center;gap:8px}.mobilebrand .mark{width:30px;height:30px}.topright{margin-left:auto;display:flex;align-items:center;gap:9px}.date{font-size:12px;color:var(--muted)}.btn{border:1px solid #ffffff1c;background:#172238;padding:10px 14px;border-radius:11px;font-weight:800}.btn:hover{border-color:#75baff88}.primary{border:0;background:linear-gradient(110deg,#79c6ff,#a58bff);color:#07101b;padding:11px 16px;border-radius:11px;font-weight:950;box-shadow:0 8px 25px #6b9fff30}.hero{position:relative;overflow:hidden;min-height:300px;padding:35px;border:1px solid #ffffff18;border-radius:24px;background:radial-gradient(ellipse at 82% 44%,#527bdf6b 0,transparent 29%),radial-gradient(ellipse at 87% 83%,#ffad5733 0,transparent 28%),linear-gradient(112deg,#111b30,#111a2c 52%,#251a40);box-shadow:0 24px 70px #0005}.hero:before{content:"";position:absolute;inset:-30%;background:repeating-conic-gradient(from 8deg at 78% 48%,transparent 0deg 9deg,#a8d3ff12 9.3deg 9.7deg,transparent 10deg 18deg);mask-image:radial-gradient(ellipse at 78% 48%,#000,transparent 54%);animation:spin 65s linear infinite}.aura{position:absolute;right:8%;top:5%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,#e6f4ff 0,#83caff 4%,#6a6cff 19%,#7c4dff88 42%,#ffb04a30 58%,transparent 72%);filter:blur(2px);animation:pulse 4s ease-in-out infinite}.heroCopy{position:relative;z-index:2;max-width:600px}.eyebrow{font-size:10px;color:#a8ceff;letter-spacing:.22em;font-weight:950}.hero h1{font-size:clamp(35px,5vw,62px);line-height:.98;letter-spacing:-.05em;margin:13px 0}.hero h1 em{font-style:normal;color:transparent;background:linear-gradient(90deg,#8ed0ff,#b29bff 58%,#ffd08c);background-clip:text}.hero p{color:#b3c1d7;max-width:460px;margin:14px 0 21px}.heroActions{display:flex;gap:10px;flex-wrap:wrap}.heroTag{position:absolute;right:22px;bottom:18px;color:#c6d2e2aa;font-size:10px;letter-spacing:.2em;z-index:2}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:17px}.stat{padding:15px;border:1px solid #ffffff12;border-radius:15px;background:linear-gradient(145deg,#141e30,#101725)}.stat span{display:block;color:var(--muted);font-size:11px}.stat b{font-size:22px;display:block;margin-top:3px}.stat small{font-size:10px;color:#7e91ac}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:30px 0 14px}.sectionhead h2{font-size:21px;margin:0;letter-spacing:-.03em}.sectionhead p{font-size:12px;color:var(--muted);margin:3px 0 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:linear-gradient(145deg,#151f31,#101725);border:1px solid #ffffff13;border-radius:17px;padding:17px;min-width:0}.card h3{margin:0 0 7px;font-size:17px}.tag{display:inline-block;border-radius:99px;padding:4px 9px;font-size:10px;font-weight:900;background:#203b5e;color:#b8d7ff;margin-bottom:8px}.tag.warn{background:#49371e;color:#ffdda0}.tag.rest{background:#203b35;color:#a8f0cd}.muted{color:var(--muted)}ul{padding-left:20px;margin:8px 0;color:#d9e3f0}li{margin:6px 0}.dayrow{display:flex;justify-content:space-between;gap:12px;align-items:center}.dayrow small{color:var(--muted)}.notice{border:1px solid #755b2b;background:#392d19;color:#ffe3ad;padding:15px;border-radius:14px}.notice strong{display:block;margin-bottom:4px}.foodgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.meal{background:#1a2940;padding:13px;border-radius:12px}.meal b{display:block;margin-bottom:3px}.meal p{margin:0;color:var(--muted);font-size:13px}.checklist{display:grid;gap:8px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:#0d1726}.check input{width:18px;height:18px;accent-color:var(--green);margin-top:2px}.check.done span{text-decoration:line-through;color:#7f8da2}.progress{height:8px;background:#26344a;border-radius:20px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#64b4ff,#a88aff,#ffbd69);transition:width .2s}.progressrow{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;background:#0d1726;color:var(--txt);resize:vertical}.hidden{display:none!important}.view{animation:fade .35s ease}.footer{border-top:1px solid var(--line);margin-top:30px;padding-top:17px;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,12px);opacity:0;background:#202d43;border:1px solid #ffffff22;padding:10px 15px;border-radius:11px;z-index:20;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{50%{transform:scale(1.06);opacity:1}}@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}@media(max-width:1050px){.main{padding:22px}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:720px){.layout{display:block}.sidebar{display:none}.main{padding:14px 13px 35px}.mobilebrand{display:flex}.topbar{margin-bottom:16px}.date{display:none}.hero{padding:25px 21px;min-height:330px}.aura{width:220px;height:220px;right:-30px;top:100px;opacity:.55}.hero h1{font-size:44px}.heroTag{right:13px;bottom:11px}.grid,.foodgrid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:19px}.sectionhead{margin-top:25px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
 </head>
-<body>
-<div class="wrap">
-  <header class="hero">
-    <div class="eyebrow">Plan personnel · Version de départ</div>
-    <h1>Mon programme sportif</h1>
-    <p>Construire progressivement de la force et de la musculature, avec une priorité absolue à la santé, à la croissance et au respect du dos.</p>
-    <div class="stats">
-      <div class="stat"><b>16 ans</b><span>Âge déclaré</span></div>
-      <div class="stat"><b>1,75 m</b><span>Taille déclarée</span></div>
-      <div class="stat"><b>50 kg</b><span>Poids déclaré</span></div>
-      <div class="stat"><b>8 h</b><span>Sommeil habituel</span></div>
-    </div>
-  </header>
-
-  <h2>À lire avant de commencer</h2>
-  <div class="notice">
-    <strong>⚠️ Pas encore de programme de musculation chargé</strong>
-    Tu as signalé des douleurs lombaires occasionnelles, notamment lorsque tu restes debout. Comme leur cause n'est pas connue ici, ce planning est une routine d'organisation et de récupération, pas une autorisation médicale de faire quatre séances de musculation. Demande à ton médecin ou à un physiothérapeute quels mouvements et quelles charges sont adaptés, et précise que tu souhaites commencer la musculation.
-  </div>
-
-  <h2>Ton planning de la semaine</h2>
-  <div class="grid">
-    <section class="card">
-      <div class="day"><h3>Lundi</h3><small>Organisation & récupération</small></div>
-      <span class="tag care">Priorité santé</span>
-      <ul>
-        <li>Faire le point sur les consignes reçues du médecin.</li>
-        <li>Préparer ton sac et organiser les repas de la semaine.</li>
-        <li>Marche ou activité douce uniquement si elle ne déclenche pas de douleur.</li>
-        <li>Noter si le bas du dos a été douloureux et dans quelles circonstances.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Mardi</h3><small>Activité légère</small></div>
-      <span class="tag rest">Sans douleur</span>
-      <ul>
-        <li>Activité quotidienne confortable, sans forcer.</li>
-        <li>Pas de charges lourdes ni de mouvements qui réveillent la douleur.</li>
-        <li>Prendre une collation en plus des repas si possible.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Mercredi</h3><small>Récupération</small></div>
-      <span class="tag rest">Repos</span>
-      <ul>
-        <li>Repos ou mouvement doux selon ton confort.</li>
-        <li>Garder des horaires de sommeil réguliers.</li>
-        <li>Préparer une collation facile pour le lendemain.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Jeudi</h3><small>Suivi & habitudes</small></div>
-      <span class="tag care">Priorité santé</span>
-      <ul>
-        <li>Si tu as reçu des exercices précis du physiothérapeute, les faire exactement comme enseigné.</li>
-        <li>Ne pas ajouter d'exercices lombaires trouvés sur Internet.</li>
-        <li>Faire le point sur l'appétit et les repas.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Vendredi</h3><small>Activité légère</small></div>
-      <span class="tag rest">Sans douleur</span>
-      <ul>
-        <li>Activité douce et confortable si elle est autorisée.</li>
-        <li>Éviter les exercices qui provoquent ou augmentent les symptômes.</li>
-        <li>Hydratation régulière.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Samedi</h3><small>Repos actif facultatif</small></div>
-      <span class="tag rest">Récupération</span>
-      <ul>
-        <li>Loisir actif tranquille si tu te sens bien et si cela ne fait pas mal.</li>
-        <li>Pas de test de force, de charges maximales ou de séance « pour rattraper ».</li>
-        <li>Prendre un repas complet et une collation.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Dimanche</h3><small>Bilan hebdomadaire</small></div>
-      <span class="tag care">Préparation</span>
-      <ul>
-        <li>Faire le bilan de tes douleurs, de ton sommeil et de ton appétit.</li>
-        <li>Prévoir les repas et collations de la semaine.</li>
-        <li>Planifier les rendez-vous ou questions à poser au professionnel de santé.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <h3>Quand la reprise sera validée</h3>
-      <span class="tag">Étape suivante</span>
-      <ul>
-        <li>Le professionnel de santé confirme les mouvements autorisés.</li>
-        <li>On construit alors un programme adapté, éventuellement sur quatre jours.</li>
-        <li>On commence léger, avec technique supervisée et progression graduelle.</li>
-      </ul>
-    </section>
-  </div>
-
-  <h2>Nutrition : faciliter la régularité</h2>
-  <p class="muted">Tu m'as dit prendre généralement deux repas par jour et avoir peu envie de manger. Le premier objectif est d'ajouter progressivement une occasion de manger, sans te forcer ni compter chaque calorie.</p>
-  <div class="food">
-    <div class="meal"><b>Petit-déjeuner ou collation</b><p>Yaourt ou lait, banane et flocons d'avoine.</p></div>
-    <div class="meal"><b>Repas principal</b><p>Riz, pâtes ou pommes de terre + poulet, œufs, poisson ou légumineuses + légumes.</p></div>
-    <div class="meal"><b>Collation facile</b><p>Un sandwich, un yaourt avec des noix, ou un smoothie lait-banane-avoine.</p></div>
-    <div class="meal"><b>Repas du soir</b><p>Un repas complet avec féculent, source de protéines et matières grasses variées.</p></div>
-  </div>
-  <p class="muted">À ton âge et avec ton poids déclaré, demande au médecin ou à un diététicien pédiatrique/sportif de vérifier que tes apports soutiennent bien ta croissance. Pas de régime, de prise de masse forcée ni de compléments automatiques.</p>
-
-
-  <h2>Programme musculaire — objectif prise de muscle</h2>
-  <div class="notice">
-    <strong>⚠️ Programme en deux étapes</strong>
-    Tant que tes douleurs lombaires n'ont pas été réévaluées et que ton médecin ou physiothérapeute n'a pas confirmé les mouvements autorisés, suis uniquement la partie « étape 0 ». Le programme de musculation ci-dessous est un modèle de reprise à faire valider avant de le commencer. Ne t'entraîne jamais à travers une douleur.
-  </div>
-
-  <section class="card" style="margin-top:13px">
-    <h3>Étape 0 — maintenant : protéger ton dos et préparer la reprise</h3>
-    <ul>
-      <li>Prends rendez-vous / recontacte le professionnel qui a déjà examiné ton dos. Explique que la douleur lombaire revient lorsque tu restes debout et que tu souhaites commencer la musculation.</li>
-      <li>Demande précisément quels mouvements sont autorisés : presse à jambes, machines pour le haut du corps, exercices du tronc, amplitude et charges.</li>
-      <li>Pas de squat avec barre, soulevé de terre, rowing penché, extensions lombaires, charges maximales ni exercice qui déclenche la douleur avant cet accord.</li>
-      <li>Garde une activité quotidienne douce uniquement si elle est confortable et autorisée.</li>
-    </ul>
-  </section>
-
-  <h3 style="margin-top:18px">Étape 1 — exemple de reprise après validation médicale</h3>
-  <p class="muted">Objectif : apprendre les mouvements, développer progressivement tout le corps et garder plusieurs répétitions en réserve. Commence avec 2 séries par exercice, 8 à 12 répétitions, repos 90 à 120 secondes, effort facile à modéré (environ 3 à 4 répétitions en réserve). Le professionnel qui suit ton dos doit valider chaque exercice et son réglage.</p>
-  <div class="grid">
-    <section class="card">
-      <div class="day"><h3>Lundi — Haut du corps A</h3><small>45–60 min max</small></div>
-      <span class="tag">Après autorisation</span>
-      <ul>
-        <li>Échauffement : 5–8 min très facile, sans douleur.</li>
-        <li>Chest press guidée — 2 × 8–12.</li>
-        <li>Tirage vertical, buste soutenu si possible — 2 × 8–12.</li>
-        <li>Rowing assis avec poitrine soutenue si disponible — 2 × 8–12.</li>
-        <li>Élévations latérales légères, assis si confortable — 2 × 10–15.</li>
-        <li>Curl biceps assis — 2 × 10–15.</li>
-        <li>Extension triceps à la poulie, position stable — 2 × 10–15.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Mardi — Bas du corps A</h3><small>Uniquement exercices validés</small></div>
-      <span class="tag care">Validation indispensable</span>
-      <ul>
-        <li>Échauffement facile, sans douleur.</li>
-        <li>Leg extension — 2 × 10–12, si autorisée.</li>
-        <li>Leg curl assis — 2 × 10–12, si autorisé.</li>
-        <li>Mollets assis — 2 × 12–15, si autorisés.</li>
-        <li>Tout autre mouvement de jambes uniquement selon les consignes du professionnel.</li>
-        <li>Ne fais pas de presse à jambes sans validation : elle peut aussi solliciter le bas du dos.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Mercredi — Récupération</h3><small>Pas de musculation</small></div>
-      <span class="tag rest">Repos</span>
-      <ul>
-        <li>Activité quotidienne confortable.</li>
-        <li>Repas réguliers et collation.</li>
-        <li>Note toute douleur et ce qui l'a déclenchée.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Jeudi — Haut du corps B</h3><small>45–60 min max</small></div>
-      <span class="tag">Après autorisation</span>
-      <ul>
-        <li>Échauffement : 5–8 min très facile, sans douleur.</li>
-        <li>Chest press inclinée guidée — 2 × 8–12.</li>
-        <li>Tirage horizontal avec poitrine soutenue — 2 × 8–12.</li>
-        <li>Pec deck — 2 × 10–15.</li>
-        <li>Élévations latérales légères — 2 × 10–15.</li>
-        <li>Curl biceps assis — 2 × 10–15.</li>
-        <li>Triceps à la poulie — 2 × 10–15.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Vendredi — Récupération</h3><small>Pas de musculation</small></div>
-      <span class="tag rest">Repos</span>
-      <ul>
-        <li>Repos et sommeil régulier.</li>
-        <li>Prépare les repas et collations du week-end.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Samedi — Bas du corps B</h3><small>Uniquement exercices validés</small></div>
-      <span class="tag care">Validation indispensable</span>
-      <ul>
-        <li>Échauffement facile, sans douleur.</li>
-        <li>Leg curl assis — 2 × 10–12, si autorisé.</li>
-        <li>Leg extension — 2 × 10–12, si autorisée.</li>
-        <li>Mollets assis — 2 × 12–15, si autorisés.</li>
-        <li>Pas de squat, presse ou mouvement chargé du tronc sans feu vert professionnel.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <div class="day"><h3>Dimanche — Bilan</h3><small>Repos</small></div>
-      <span class="tag rest">Récupération</span>
-      <ul>
-        <li>Note les séances faites, les charges, les répétitions et tout symptôme.</li>
-        <li>Si une douleur apparaît pendant un exercice, arrête cet exercice et demande conseil avant de le reprendre.</li>
-        <li>Ne cherche pas à augmenter les charges chaque semaine à tout prix.</li>
-      </ul>
-    </section>
-  </div>
-
-  <h3 style="margin-top:18px">Règles de progression</h3>
-  <div class="card">
-    <ol>
-      <li>Les deux premières semaines après autorisation : reste à 2 séries et garde 3–4 répétitions en réserve.</li>
-      <li>Utilise une charge qui te permet de faire toutes les répétitions proprement, sans bloquer ta respiration ni compenser avec le dos.</li>
-      <li>Quand tu atteins facilement le haut de la fourchette sur toutes les séries, sans douleur et avec une technique stable, demande à ton coach de salle / professionnel si une petite augmentation est appropriée.</li>
-      <li>N'ajoute pas de séries, de poids et de séances en même temps.</li>
-      <li>Pas d'échec musculaire, de test 1RM ni de compétition avec les autres.</li>
-    </ol>
-  </div>
-
-  <h2>Objectif prise de poids : plan concret</h2>
-  <div class="card">
-    <p><b>Première étape :</b> passer progressivement de deux repas à trois occasions de repas et une collation facile, selon ta faim et ta tolérance. Tu n'as pas besoin de te gaver.</p>
-    <ul>
-      <li>Ajoute un petit-déjeuner simple ou une collation nourrissante chaque jour.</li>
-      <li>À chaque repas, essaie d'avoir un féculent, une source de protéines, un fruit ou légume et une matière grasse.</li>
-      <li>Garde des aliments faciles à manger : lait ou yaourt, banane, avoine, pain, fromage, œufs, riz, pâtes, noix ou purée d'oléagineux si tu les tolères.</li>
-      <li>Si ton appétit reste faible, si tu perds du poids ou si tu as du mal à manger assez, parle-en au médecin et demande un avis de diététicien spécialisé chez les adolescents.</li>
-    </ul>
-    <p class="muted">À 16 ans, la croissance change les besoins. Pas de cible calorique ou de poids imposée ici : fais vérifier ta courbe de croissance et tes besoins par un professionnel.</p>
-  </div>
-
-  <h2>Mes habitudes quotidiennes</h2>
-  <div class="card">
-    <div class="progressrow"><span>Progression de la journée</span><span id="count">0 / 6</span></div>
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <div class="checklist" id="tasks">
-      <label class="check"><input type="checkbox"><span>J'ai pris mes repas habituels et une collation si possible.</span></label>
-      <label class="check"><input type="checkbox"><span>J'ai bu régulièrement au cours de la journée.</span></label>
-      <label class="check"><input type="checkbox"><span>J'ai respecté les consignes médicales pour mon dos.</span></label>
-      <label class="check"><input type="checkbox"><span>Je n'ai pas forcé à travers une douleur.</span></label>
-      <label class="check"><input type="checkbox"><span>J'ai pris du temps pour récupérer.</span></label>
-      <label class="check"><input type="checkbox"><span>Je prévois environ 8 à 10 heures de sommeil.</span></label>
-    </div>
-    <p style="margin:13px 0 0"><button class="btn" id="reset">Réinitialiser les cases</button></p>
-  </div>
-
-  <h2>Suivi du dos</h2>
-  <div class="card">
-    <p>Note les circonstances de la douleur pour pouvoir les décrire au médecin ou au physiothérapeute.</p>
-    <label for="painlog" class="muted">Notes (moment, durée, intensité, activité associée)</label>
-    <textarea id="painlog" rows="4" style="width:100%;margin-top:8px;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0d1726;color:var(--text);font:inherit" placeholder="Ex. douleur après être resté debout longtemps…"></textarea>
-    <p class="muted" style="font-size:12px">Ces notes restent dans ce navigateur sur cet appareil si le stockage local est disponible. Elles ne remplacent pas un avis médical.</p>
-  </div>
-
-  <div class="notice" style="margin-top:22px">
-    <strong>Signaux d'alerte</strong>
-    Si tu as une faiblesse nouvelle dans une jambe, un engourdissement autour de l'entrejambe, ou des difficultés à uriner ou retenir tes urines/selles, demande une aide médicale urgente. Si la douleur s'aggrave, persiste ou limite tes activités, recontacte rapidement ton médecin.
-  </div>
-
-  <footer class="footer">
-    <b>Rappel du coach</b><br>
-    La priorité n'est pas de faire quatre séances coûte que coûte. C'est de reprendre dans de bonnes conditions, de manger suffisamment, de bien dormir et de progresser sans douleur. Ce planning est une base provisoire à adapter avec ton professionnel de santé.
-  </footer>
-</div>
+<body><div class="app"><div class="layout">
+<aside class="sidebar"><div class="brand"><div class="mark">力</div> MUSCU / ELITE</div><div class="navlabel">ESPACE PERSONNEL</div><nav class="nav"><button class="active" data-view="dashboard"><i>⌂</i> Tableau de bord</button><button data-view="program"><i>▦</i> Programme</button><button data-view="nutrition"><i>◈</i> Nutrition</button><button data-view="habits"><i>✓</i> Habitudes</button><button data-view="back"><i>＋</i> Suivi du dos</button></nav><div class="sidefoot">BUILD YOUR BASE.<br><span style="color:#9bc8ff">Progression • Patience • Santé</span></div></aside>
+<main class="main">
+<header class="topbar"><div class="mobilebrand"><div class="mark">力</div>MUSCU</div><div class="topright"><span class="date">TON ESPACE D'ENTRAÎNEMENT</span><button class="btn" id="todayBtn">Aujourd'hui ↗</button></div></header>
+<section id="dashboard" class="view">
+<div class="hero"><div class="aura"></div><div class="heroCopy"><div class="eyebrow">PERSONAL TRAINING SYSTEM · 2026</div><h1>FORGE YOUR<br><em>STRONGEST SELF.</em></h1><p>Construis une base physique solide. Développe ta force et ta musculature progressivement, avec une priorité absolue à ta croissance et à ton dos.</p><div class="heroActions"><button class="primary" data-go="program">Voir mon programme</button><button class="btn" data-go="nutrition">Plan nutritionnel</button></div></div><div class="heroTag">DISCIPLINE · TECHNIQUE · RÉCUPÉRATION</div></div>
+<div class="stats"><div class="stat"><span>ÂGE</span><b>16 ans</b><small>Profil déclaré</small></div><div class="stat"><span>TAILLE</span><b>1,75 m</b><small>Dernière mesure déclarée</small></div><div class="stat"><span>POIDS</span><b>50 kg</b><small>À suivre avec un professionnel</small></div><div class="stat"><span>OBJECTIF</span><b>Muscle + force</b><small>Progression durable</small></div></div>
+<div class="sectionhead"><div><h2>Ta stratégie</h2><p>Les priorités qui guident ton accompagnement.</p></div></div><div class="grid">
+<div class="card"><span class="tag">01 · ENTRAÎNEMENT</span><h3>Construire une base solide</h3><p class="muted">Apprendre les mouvements, maîtriser la technique et progresser sans chercher les charges maximales.</p></div>
+<div class="card"><span class="tag">02 · NUTRITION</span><h3>Manger suffisamment</h3><p class="muted">Passer progressivement de deux repas à des prises alimentaires plus régulières, sans se forcer.</p></div>
+<div class="card"><span class="tag">03 · RÉCUPÉRATION</span><h3>Grandir et récupérer</h3><p class="muted">Garder des nuits régulières, viser 8 à 10 heures de sommeil et respecter les jours de repos.</p></div>
+<div class="card"><span class="tag">04 · SUIVI</span><h3>Écouter les signaux</h3><p class="muted">Suivre les douleurs lombaires, l'appétit et l'énergie. La santé passe avant le programme.</p></div></div>
+<div class="sectionhead"><div><h2>Cette semaine</h2><p>Planning provisoire en attendant le feu vert pour les exercices.</p></div><button class="text-btn" data-go="program">Détails →</button></div><div class="grid">
+<div class="card"><div class="dayrow"><h3>Lundi</h3><small>Organisation</small></div><span class="tag warn">Santé d'abord</span><p class="muted">Vérifier les consignes du médecin, préparer les repas et noter les symptômes.</p></div>
+<div class="card"><div class="dayrow"><h3>Mardi</h3><small>Activité douce</small></div><span class="tag rest">Confort</span><p class="muted">Activité quotidienne uniquement si elle ne déclenche pas la douleur.</p></div>
+<div class="card"><div class="dayrow"><h3>Mercredi</h3><small>Récupération</small></div><span class="tag rest">Repos</span><p class="muted">Sommeil régulier, repas et collation.</p></div>
+<div class="card"><div class="dayrow"><h3>Jeudi à dimanche</h3><small>Suivi</small></div><span class="tag warn">Selon avis médical</span><p class="muted">Suivre uniquement les exercices prescrits et faire le bilan hebdomadaire.</p></div></div>
+</section>
+<section id="program" class="view hidden"><div class="sectionhead"><div><div class="eyebrow">TRAINING BLUEPRINT</div><h2>Ton programme détaillé</h2><p>Objectif à terme : 4 séances hebdomadaires, si validées pour ton dos.</p></div></div>
+<div class="notice"><strong>⚠️ Étape actuelle — pas encore de musculation chargée</strong>Tu as signalé des douleurs lombaires occasionnelles, surtout debout. Tu as déjà consulté, mais aucun diagnostic précis n'est connu ici. Recontacte ton médecin ou un physiothérapeute avant de commencer ce programme et demande quels exercices, amplitudes et charges sont adaptés. Ne fais pas d'exercice qui provoque ou augmente la douleur.</div>
+<div class="sectionhead"><div><h2>Étape 0 · maintenant</h2><p>Préparer une reprise sûre.</p></div></div><div class="card"><ul><li>Demander au professionnel qui t'a examiné de valider chaque mouvement et le réglage des machines.</li><li>Préciser que tu as 16 ans, que tu souhaites commencer la musculation et que la douleur revient en station debout.</li><li>En attendant : pas de squat barre, soulevé de terre, rowing penché, extensions lombaires, charges maximales ni mouvement douloureux.</li><li>Une activité quotidienne douce est possible uniquement si elle est confortable et compatible avec les consignes reçues.</li></ul></div>
+<div class="sectionhead"><div><h2>Étape 1 · modèle après autorisation</h2><p>Les exercices ci-dessous ne sont à utiliser qu'après validation individualisée.</p></div></div><div class="grid">
+<div class="card"><div class="dayrow"><h3>Lundi · Haut A</h3><small>45–60 min max</small></div><span class="tag">Après validation</span><ul><li>Échauffement facile 5–8 min.</li><li>Chest press guidée — 2 × 8–12.</li><li>Tirage vertical — 2 × 8–12.</li><li>Rowing poitrine soutenue — 2 × 8–12.</li><li>Élévations latérales légères — 2 × 10–15.</li><li>Curl biceps assis — 2 × 10–15.</li><li>Extension triceps poulie — 2 × 10–15.</li></ul></div>
+<div class="card"><div class="dayrow"><h3>Mardi · Bas A</h3><small>Selon avis professionnel</small></div><span class="tag warn">Validation indispensable</span><ul><li>Échauffement facile.</li><li>Leg extension — 2 × 10–12 si autorisée.</li><li>Leg curl assis — 2 × 10–12 si autorisé.</li><li>Mollets assis — 2 × 12–15 si autorisés.</li><li>Pas de presse à jambes sans validation spécifique.</li></ul></div>
+<div class="card"><div class="dayrow"><h3>Mercredi · Repos</h3><small>Récupération</small></div><span class="tag rest">Repos</span><p class="muted">Activité quotidienne confortable, repas réguliers, hydratation et sommeil.</p></div>
+<div class="card"><div class="dayrow"><h3>Jeudi · Haut B</h3><small>45–60 min max</small></div><span class="tag">Après validation</span><ul><li>Échauffement facile 5–8 min.</li><li>Chest press inclinée — 2 × 8–12.</li><li>Tirage horizontal poitrine soutenue — 2 × 8–12.</li><li>Pec deck — 2 × 10–15.</li><li>Élévations latérales — 2 × 10–15.</li><li>Curl biceps assis — 2 × 10–15.</li><li>Triceps poulie — 2 × 10–15.</li></ul></div>
+<div class="card"><div class="dayrow"><h3>Vendredi · Repos</h3><small>Récupération</small></div><span class="tag rest">Repos</span><p class="muted">Détente, repas et sommeil. Pas de séance à rattraper.</p></div>
+<div class="card"><div class="dayrow"><h3>Samedi · Bas B</h3><small>Selon avis professionnel</small></div><span class="tag warn">Validation indispensable</span><ul><li>Leg curl assis — 2 × 10–12 si autorisé.</li><li>Leg extension — 2 × 10–12 si autorisée.</li><li>Mollets assis — 2 × 12–15 si autorisés.</li><li>Pas de squat, presse ou charge sur le tronc sans feu vert.</li></ul></div>
+<div class="card"><div class="dayrow"><h3>Dimanche · Bilan</h3><small>Repos</small></div><span class="tag rest">Récupération</span><p class="muted">Noter énergie, appétit, douleurs et exercices tolérés. Transmettre les symptômes au professionnel.</p></div></div>
+<div class="sectionhead"><div><h2>Règles de progression</h2></div></div><div class="card"><ul><li>Au début, rester à 2 séries et garder 3–4 répétitions en réserve.</li><li>Choisir une charge facile à modérée permettant une technique stable et une respiration normale.</li><li>Ne progresser que si le mouvement est autorisé, bien maîtrisé et sans douleur ; demander conseil avant d'augmenter.</li><li>Ne pas augmenter simultanément les charges, les séries et la fréquence.</li><li>Pas d'échec musculaire, de test 1RM ou de compétition de charges.</li></ul></div>
+</section>
+<section id="nutrition" class="view hidden"><div class="sectionhead"><div><div class="eyebrow">FUEL YOUR GROWTH</div><h2>Nutrition & prise de poids</h2><p>Priorité : soutenir ta croissance, ton énergie et le développement musculaire.</p></div></div>
+<div class="notice"><strong>Important à 16 ans</strong>Avec 50 kg pour 1,75 m selon tes dernières données, fais vérifier ta courbe de croissance et tes besoins par ton médecin/pédiatre. Un diététicien spécialisé chez les adolescents peut t'aider si manger suffisamment est difficile. Pas de régime, de déficit calorique, de prise de masse forcée ni de cible calorique arbitraire.</div>
+<div class="sectionhead"><div><h2>Une journée simple à construire</h2><p>Tu m'as dit manger deux repas par jour et avoir peu envie de manger.</p></div></div><div class="foodgrid">
+<div class="meal"><b>Petit-déjeuner ou première collation</b><p>Lait ou yaourt, banane et flocons d'avoine. Petite portion au départ si l'appétit est faible.</p></div>
+<div class="meal"><b>Déjeuner</b><p>Riz, pâtes ou pommes de terre + poulet, œufs, poisson ou légumineuses + légumes et huile d'olive.</p></div>
+<div class="meal"><b>Goûter facile</b><p>Sandwich, yaourt et noix, fromage et pain, ou smoothie lait-banane-avoine si tu le tolères.</p></div>
+<div class="meal"><b>Dîner</b><p>Un repas complet avec féculent, source de protéines, légumes et matière grasse.</p></div></div>
+<div class="sectionhead"><div><h2>Petites stratégies pour l'appétit</h2></div></div><div class="card"><ul><li>Ajouter une petite prise alimentaire régulière plutôt que se forcer à manger de grosses portions.</li><li>Garder des aliments pratiques et appréciés à portée de main.</li><li>Ne pas remplacer systématiquement les repas par des boissons ou des poudres.</li><li>Si l'appétit reste bas, si tu perds du poids ou si manger devient difficile, en parler à un professionnel de santé.</li></ul></div></section>
+<section id="habits" class="view hidden"><div class="sectionhead"><div><div class="eyebrow">DAILY CONSISTENCY</div><h2>Mes habitudes quotidiennes</h2><p>Une progression durable commence par des habitudes simples.</p></div></div><div class="card"><div class="progressrow"><span>Progression de la journée</span><span id="count">0 / 6</span></div><div class="progress"><div class="bar" id="bar"></div></div><div class="checklist" id="tasks"><label class="check"><input type="checkbox"><span>J'ai pris mes repas et une collation si possible.</span></label><label class="check"><input type="checkbox"><span>J'ai bu régulièrement dans la journée.</span></label><label class="check"><input type="checkbox"><span>J'ai respecté les consignes médicales pour mon dos.</span></label><label class="check"><input type="checkbox"><span>Je n'ai pas forcé à travers une douleur.</span></label><label class="check"><input type="checkbox"><span>J'ai pris du temps pour récupérer.</span></label><label class="check"><input type="checkbox"><span>Je prévois 8 à 10 heures de sommeil.</span></label></div><button class="btn" id="reset" style="margin-top:13px">Réinitialiser les cases</button></div></section>
+<section id="back" class="view hidden"><div class="sectionhead"><div><div class="eyebrow">RECOVERY & SAFETY</div><h2>Suivi de mon dos</h2><p>Note les symptômes pour mieux les décrire au médecin ou au physiothérapeute.</p></div></div><div class="notice"><strong>À surveiller</strong>Si la douleur s'aggrave, persiste ou limite tes activités, recontacte ton médecin. Une faiblesse nouvelle dans une jambe, un engourdissement autour de l'entrejambe ou des troubles urinaires/selles nécessitent une évaluation médicale urgente.</div><div class="card" style="margin-top:14px"><label for="painlog"><b>Journal des douleurs</b></label><p class="muted">Note la date, le moment, la durée, l'intensité et l'activité associée.</p><textarea id="painlog" rows="7" placeholder="Ex. douleur après être resté debout longtemps…"></textarea><p class="muted" style="font-size:11px">Tes notes sont enregistrées localement dans ce navigateur si le stockage est disponible. Elles ne remplacent pas un avis médical.</p></div></section>
+<footer class="footer">MUSCU / ELITE TRAINING SYSTEM · Ton objectif : devenir plus fort progressivement, sans sacrifier ta santé, ta croissance ni ta récupération.</footer>
+</main></div></div><div class="toast" id="toast"></div>
 <script>
-  const checks=[...document.querySelectorAll('#tasks input')], count=document.getElementById('count'), bar=document.getElementById('bar');
-  function update(){const n=checks.filter(x=>x.checked).length;count.textContent=`${n} / ${checks.length}`;bar.style.width=(n/checks.length*100)+'%';checks.forEach(x=>x.closest('.check').classList.toggle('done',x.checked));}
-  checks.forEach(x=>x.addEventListener('change',update));
-  document.getElementById('reset').addEventListener('click',()=>{checks.forEach(x=>x.checked=false);update();});
-  const log=document.getElementById('painlog');
-  try{log.value=localStorage.getItem('coachPainLog')||'';log.addEventListener('input',()=>localStorage.setItem('coachPainLog',log.value));}catch(e){}
-  update();
-</script>
-</body>
-</html>
+(()=>{const $=id=>document.getElementById(id);function show(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('hidden',x.id!==v));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));window.scrollTo({top:0,behavior:'smooth'})}document.addEventListener('click',e=>{const n=e.target.closest('[data-view],[data-go]');if(n)show(n.dataset.view||n.dataset.go)});$('todayBtn').onclick=()=>show('habits');const checks=[...document.querySelectorAll('#tasks input')];function update(){let n=checks.filter(x=>x.checked).length;$('count').textContent=n+' / '+checks.length;$('bar').style.width=(n/checks.length*100)+'%';checks.forEach(x=>x.closest('.check').classList.toggle('done',x.checked))}checks.forEach(x=>x.addEventListener('change',update));$('reset').onclick=()=>{checks.forEach(x=>x.checked=false);update()};const log=$('painlog');try{log.value=localStorage.getItem('muscuPainLog')||'';log.addEventListener('input',()=>localStorage.setItem('muscuPainLog',log.value))}catch(e){}update()})();
+</script></body></html>
