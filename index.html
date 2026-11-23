@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>Mon Coach — Plan sportif</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#121d2e;--panel2:#172438;--text:#edf3fb;--muted:#a7b5c8;--line:#29384d;--blue:#68a8ff;--green:#7dd9ad;--amber:#ffd17a;--red:#ff9292}
+    *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 80% 0%,#1a3150 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .wrap{max-width:1050px;margin:auto;padding:28px 18px 60px}.hero{padding:26px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,#182b43,#111b2b);box-shadow:0 18px 50px #0004}
+    .eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.hero h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:10px 0}.hero p{color:var(--muted);max-width:720px;margin-bottom:0}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.stat{background:#0d1726aa;border:1px solid var(--line);padding:13px;border-radius:14px}.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted)}
+    h2{font-size:22px;margin:30px 0 12px}.notice{border:1px solid #755b2b;background:#392d19;color:#ffe3ad;padding:16px;border-radius:15px}.notice strong{display:block;margin-bottom:5px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px}.card h3{margin:0 0 8px;font-size:18px}.tag{display:inline-block;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:800;background:#203b5e;color:#b8d7ff;margin-bottom:9px}.tag.rest{background:#203b35;color:#a8f0cd}.tag.care{background:#49371e;color:#ffdda0}
+    ul{padding-left:20px;margin:9px 0;color:#d9e3f0}li{margin:6px 0}.muted{color:var(--muted)}.day{display:flex;align-items:center;justify-content:space-between;gap:12px}.day small{color:var(--muted)}
+    .checklist{display:grid;gap:9px}.check{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#0d1726}.check input{width:18px;height:18px;accent-color:var(--green);margin-top:2px}.check.done span{text-decoration:line-through;color:#8392a6}
+    .progress{height:9px;background:#25344a;border-radius:20px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,#5f9fff,#7dd9ad);transition:width .2s}.progressrow{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+    .food{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.meal{background:var(--panel2);border-radius:13px;padding:13px}.meal b{display:block;margin-bottom:4px}.meal p{margin:0;color:var(--muted);font-size:14px}
+    .footer{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;color:var(--muted);font-size:13px}.btn{border:1px solid var(--line);background:#1a2a40;color:var(--text);padding:9px 13px;border-radius:10px;font-weight:700;cursor:pointer}.btn:hover{border-color:var(--blue)}
+    @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.grid,.food{grid-template-columns:1fr}.wrap{padding:16px 12px 40px}.hero{padding:20px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Plan personnel · Version de départ</div>
+    <h1>Mon programme sportif</h1>
+    <p>Construire progressivement de la force et de la musculature, avec une priorité absolue à la santé, à la croissance et au respect du dos.</p>
+    <div class="stats">
+      <div class="stat"><b>16 ans</b><span>Âge déclaré</span></div>
+      <div class="stat"><b>1,75 m</b><span>Taille déclarée</span></div>
+      <div class="stat"><b>50 kg</b><span>Poids déclaré</span></div>
+      <div class="stat"><b>8 h</b><span>Sommeil habituel</span></div>
+    </div>
+  </header>
+
+  <h2>À lire avant de commencer</h2>
+  <div class="notice">
+    <strong>⚠️ Pas encore de programme de musculation chargé</strong>
+    Tu as signalé des douleurs lombaires occasionnelles, notamment lorsque tu restes debout. Comme leur cause n'est pas connue ici, ce planning est une routine d'organisation et de récupération, pas une autorisation médicale de faire quatre séances de musculation. Demande à ton médecin ou à un physiothérapeute quels mouvements et quelles charges sont adaptés, et précise que tu souhaites commencer la musculation.
+  </div>
+
+  <h2>Ton planning de la semaine</h2>
+  <div class="grid">
+    <section class="card">
+      <div class="day"><h3>Lundi</h3><small>Organisation & récupération</small></div>
+      <span class="tag care">Priorité santé</span>
+      <ul>
+        <li>Faire le point sur les consignes reçues du médecin.</li>
+        <li>Préparer ton sac et organiser les repas de la semaine.</li>
+        <li>Marche ou activité douce uniquement si elle ne déclenche pas de douleur.</li>
+        <li>Noter si le bas du dos a été douloureux et dans quelles circonstances.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Mardi</h3><small>Activité légère</small></div>
+      <span class="tag rest">Sans douleur</span>
+      <ul>
+        <li>Activité quotidienne confortable, sans forcer.</li>
+        <li>Pas de charges lourdes ni de mouvements qui réveillent la douleur.</li>
+        <li>Prendre une collation en plus des repas si possible.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Mercredi</h3><small>Récupération</small></div>
+      <span class="tag rest">Repos</span>
+      <ul>
+        <li>Repos ou mouvement doux selon ton confort.</li>
+        <li>Garder des horaires de sommeil réguliers.</li>
+        <li>Préparer une collation facile pour le lendemain.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Jeudi</h3><small>Suivi & habitudes</small></div>
+      <span class="tag care">Priorité santé</span>
+      <ul>
+        <li>Si tu as reçu des exercices précis du physiothérapeute, les faire exactement comme enseigné.</li>
+        <li>Ne pas ajouter d'exercices lombaires trouvés sur Internet.</li>
+        <li>Faire le point sur l'appétit et les repas.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Vendredi</h3><small>Activité légère</small></div>
+      <span class="tag rest">Sans douleur</span>
+      <ul>
+        <li>Activité douce et confortable si elle est autorisée.</li>
+        <li>Éviter les exercices qui provoquent ou augmentent les symptômes.</li>
+        <li>Hydratation régulière.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Samedi</h3><small>Repos actif facultatif</small></div>
+      <span class="tag rest">Récupération</span>
+      <ul>
+        <li>Loisir actif tranquille si tu te sens bien et si cela ne fait pas mal.</li>
+        <li>Pas de test de force, de charges maximales ou de séance « pour rattraper ».</li>
+        <li>Prendre un repas complet et une collation.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <div class="day"><h3>Dimanche</h3><small>Bilan hebdomadaire</small></div>
+      <span class="tag care">Préparation</span>
+      <ul>
+        <li>Faire le bilan de tes douleurs, de ton sommeil et de ton appétit.</li>
+        <li>Prévoir les repas et collations de la semaine.</li>
+        <li>Planifier les rendez-vous ou questions à poser au professionnel de santé.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h3>Quand la reprise sera validée</h3>
+      <span class="tag">Étape suivante</span>
+      <ul>
+        <li>Le professionnel de santé confirme les mouvements autorisés.</li>
+        <li>On construit alors un programme adapté, éventuellement sur quatre jours.</li>
+        <li>On commence léger, avec technique supervisée et progression graduelle.</li>
+      </ul>
+    </section>
+  </div>
+
+  <h2>Nutrition : faciliter la régularité</h2>
+  <p class="muted">Tu m'as dit prendre généralement deux repas par jour et avoir peu envie de manger. Le premier objectif est d'ajouter progressivement une occasion de manger, sans te forcer ni compter chaque calorie.</p>
+  <div class="food">
+    <div class="meal"><b>Petit-déjeuner ou collation</b><p>Yaourt ou lait, banane et flocons d'avoine.</p></div>
+    <div class="meal"><b>Repas principal</b><p>Riz, pâtes ou pommes de terre + poulet, œufs, poisson ou légumineuses + légumes.</p></div>
+    <div class="meal"><b>Collation facile</b><p>Un sandwich, un yaourt avec des noix, ou un smoothie lait-banane-avoine.</p></div>
+    <div class="meal"><b>Repas du soir</b><p>Un repas complet avec féculent, source de protéines et matières grasses variées.</p></div>
+  </div>
+  <p class="muted">À ton âge et avec ton poids déclaré, demande au médecin ou à un diététicien pédiatrique/sportif de vérifier que tes apports soutiennent bien ta croissance. Pas de régime, de prise de masse forcée ni de compléments automatiques.</p>
+
+  <h2>Mes habitudes quotidiennes</h2>
+  <div class="card">
+    <div class="progressrow"><span>Progression de la journée</span><span id="count">0 / 6</span></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="checklist" id="tasks">
+      <label class="check"><input type="checkbox"><span>J'ai pris mes repas habituels et une collation si possible.</span></label>
+      <label class="check"><input type="checkbox"><span>J'ai bu régulièrement au cours de la journée.</span></label>
+      <label class="check"><input type="checkbox"><span>J'ai respecté les consignes médicales pour mon dos.</span></label>
+      <label class="check"><input type="checkbox"><span>Je n'ai pas forcé à travers une douleur.</span></label>
+      <label class="check"><input type="checkbox"><span>J'ai pris du temps pour récupérer.</span></label>
+      <label class="check"><input type="checkbox"><span>Je prévois environ 8 à 10 heures de sommeil.</span></label>
+    </div>
+    <p style="margin:13px 0 0"><button class="btn" id="reset">Réinitialiser les cases</button></p>
+  </div>
+
+  <h2>Suivi du dos</h2>
+  <div class="card">
+    <p>Note les circonstances de la douleur pour pouvoir les décrire au médecin ou au physiothérapeute.</p>
+    <label for="painlog" class="muted">Notes (moment, durée, intensité, activité associée)</label>
+    <textarea id="painlog" rows="4" style="width:100%;margin-top:8px;padding:12px;border-radius:10px;border:1px solid var(--line);background:#0d1726;color:var(--text);font:inherit" placeholder="Ex. douleur après être resté debout longtemps…"></textarea>
+    <p class="muted" style="font-size:12px">Ces notes restent dans ce navigateur sur cet appareil si le stockage local est disponible. Elles ne remplacent pas un avis médical.</p>
+  </div>
+
+  <div class="notice" style="margin-top:22px">
+    <strong>Signaux d'alerte</strong>
+    Si tu as une faiblesse nouvelle dans une jambe, un engourdissement autour de l'entrejambe, ou des difficultés à uriner ou retenir tes urines/selles, demande une aide médicale urgente. Si la douleur s'aggrave, persiste ou limite tes activités, recontacte rapidement ton médecin.
+  </div>
+
+  <footer class="footer">
+    <b>Rappel du coach</b><br>
+    La priorité n'est pas de faire quatre séances coûte que coûte. C'est de reprendre dans de bonnes conditions, de manger suffisamment, de bien dormir et de progresser sans douleur. Ce planning est une base provisoire à adapter avec ton professionnel de santé.
+  </footer>
+</div>
+<script>
+  const checks=[...document.querySelectorAll('#tasks input')], count=document.getElementById('count'), bar=document.getElementById('bar');
+  function update(){const n=checks.filter(x=>x.checked).length;count.textContent=`${n} / ${checks.length}`;bar.style.width=(n/checks.length*100)+'%';checks.forEach(x=>x.closest('.check').classList.toggle('done',x.checked));}
+  checks.forEach(x=>x.addEventListener('change',update));
+  document.getElementById('reset').addEventListener('click',()=>{checks.forEach(x=>x.checked=false);update();});
+  const log=document.getElementById('painlog');
+  try{log.value=localStorage.getItem('coachPainLog')||'';log.addEventListener('input',()=>localStorage.setItem('coachPainLog',log.value));}catch(e){}
+  update();
+</script>
+</body>
+</html>
